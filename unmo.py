@@ -1,4 +1,4 @@
-from responder import Responder
+from responder import RandomResponder
 
 
 class Unmo:
@@ -11,10 +11,10 @@ class Unmo:
 
     def __init__(self, name):
         """文字列を受け取り、コアインスタンスの名前に設定する。
-        'What' Responderインスタンスを作成し、保持する。
+        'Random' Responderインスタンスを作成し、保持する。
         """
         self._name = name
-        self._responder = Responder("What")
+        self._responder = RandomResponder("Random")
 
     def dialogue(self, text):
         """ユーザーからの入力を受け取り、Responderに処理させた結果を返す。"""
