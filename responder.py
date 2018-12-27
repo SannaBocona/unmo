@@ -37,13 +37,19 @@ class WhatResponder(Responder):
 class RandomResponder(Responder):
     """AIの応答を制御する思考エンジンクラス。
     登録された文字列からランダムなものを返す。
-
-    クラス変数：
-    RESPONSES -- 応答する文字列のリスト
     """
 
-    RESPONSES = ["今日は寒いね", "チョコ食べたい", "昨日10円拾った"]
+    def __init__(self, name):
+        """文字列nameを受け取り、オブジェクトの名前に設定する。
+        'dics/random.txt'ファイルから応答文字列のリストを読み込む。"""
+        super().__init__(name)
+        self._responses = []
+        with open("dics/random.txt", encoding="utf-8") as f:
+            for line in f:
+                if line:
+                    line = line.strip()
+                    self._responses.append(line)
 
     def response(self, _):
         """ユーザーからの入力は受け取るが、使用せずにランダムな応答を返す。"""
-        return choice(RandomResponder.RESPONSES)
+        return choice(self._responses)
