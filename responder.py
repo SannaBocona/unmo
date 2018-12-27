@@ -60,4 +60,4 @@ class PatternResponder(Responder):
             if matcher:
                 chosen_response = choice(ptn["phrases"].split("|"))
                 return chosen_response.replace("%match%", matcher[0])
-            return choice(self._dictionary.random)
+        return choice(self._dictionary.random)
