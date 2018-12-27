@@ -1,5 +1,5 @@
 from random import choice
-from responder import RandomResponder
+from responder import WhatResponder, RandomResponder
 
 
 class Unmo:
