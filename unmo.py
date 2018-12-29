@@ -37,8 +37,10 @@ class Unmo:
             self._responder = self._responders["random"]
         else:
             self._responder = self._responders["what"]
-            
-        return self._responder.response(text)
+
+        response = self._responder.response(text)
+        self._dictionary.study(text)
+        return response
 
     @property
     def name(self):
